@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Fiche d'information patient — Arthrodèse Lombaire Antérieure (ALIF)</title>
+<style>
+  :root {
+    --ink:#111;
+    --muted:#444;
+    --accent:#0b6fa4;      /* bleu */
+    --accent2:#22b8b8;     /* turquoise */
+    --bg:#fff;
+    --border:#d9d9d9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f3f5f7;
+    color: var(--ink);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;
+    line-height: 1.35;
+  }
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+  }
+  .toolbar-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .toolbar .btn {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .toolbar .btn.primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+  }
+  .wrap {
+    max-width: 980px;
+    margin: 22px auto;
+    padding: 0 16px 28px;
+  }
+  .page {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 26px 34px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  }
+  header.top {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent);
+  }
+  header.top img {
+    width: 110px;
+    height: auto;
+  }
+  .brand h1 {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+  }
+  .brand .line {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .doc-title {
+    margin-top: 18px;
+    border-left: 6px solid var(--accent2);
+    padding-left: 14px;
+  }
+  .doc-title h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+  .doc-title .meta {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    display: flex;
+    gap: 30px;
+  }
+
+  h3 {
+    margin: 22px 0 8px;
+    font-size: 16px;
+    color: var(--accent);
+  }
+  h4 {
+    margin: 14px 0 6px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0 8px 18px; }
+  li { margin: 4px 0; }
+
+  .note {
+    border: 1px solid var(--border);
+    border-left: 6px solid var(--accent2);
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #fbfeff;
+    margin: 12px 0;
+  }
+  .warn {
+    border-left-color: #d93025;
+    background: #fff9f8;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    vertical-align: top;
+  }
+  th {
+    background: #f6f8fa;
+    text-align: left;
+  }
+
+  .hr {
+    margin: 18px 0;
+    height: 1px;
+    background: var(--border);
+    border: 0;
+  }
+
+  footer {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .toolbar { display: none; }
+    .wrap { margin: 0; padding: 0; }
+    .page {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 14mm 14mm;
+    }
+    a { color: inherit; text-decoration: none; }
+    @page { size: A4; margin: 12mm; }
+  }
+
+/* Print layout improvements */
+@media print {
+  .no-print, .no-print * { display: none !important; }
+}
+@page { margin: 12mm; }
+</style>
+</head>
+<body>
+<div class="toolbar no-print">
+<div class="toolbar-inner">
+<div style="font-weight:700;">Fiche Arthrodèse Lombaire Antérieure (ALIF)</div>
+<button class="btn primary" onclick="window.print()">Imprimer / Sauvegarder PDF</button>
+</div>
+</div>
+<div class="wrap">
+<div class="page">
+<header class="top">
+<img alt="Logo Espace Francilien du Rachis" src="logo.png"/>
+<div class="brand">
+<h1>ESPACE FRANCILIEN DU RACHIS</h1>
+<div class="line">95, rue de Prony — 75017 Paris | rachis.paris</div>
+<div class="line">Dr Raphaël Jameson · Dr Mayalen Lamerain · Dr Christophe Travert</div>
+</div>
+</header>
+<div class="doc-title">
+<h2>FICHE D'INFORMATION PATIENT — Arthrodèse Lombaire par Voie Antérieure (ALIF)</h2>
+<div class="meta">
+<div><strong>Document remis le :</strong> ____ / ____ / ________</div>
+<div><strong>Patient(e) :</strong> ___________________________________</div>
+</div>
+</div>
+<div class="note">
+        Cette fiche d'information a été conçue pour vous fournir un support complet à l'information orale délivrée par votre chirurgien au cours des consultations.
+        Elle ne se substitue pas à l'entretien direct avec votre médecin, qui reste le seul à pouvoir adapter l'information à votre situation personnelle et à répondre à vos questions.
+        Conformément à la législation en vigueur (loi du 4 mars 2002 relative aux droits des malades), vous devez disposer d'une information claire, loyale et appropriée avant toute intervention.
+        Ce document en constitue la trace écrite.
+      </div>
+
+<h3>CHAPITRE 1 — COMPRENDRE LA MALADIE (DISCOPATHIE)</h3>
+<h4>1.1 Rappel anatomique</h4>
+<p>La colonne vertébrale lombaire est constituée de cinq vertèbres (L1 à L5) reposant sur le sacrum (S1). Elles sont séparées par des <strong>disques intervertébraux</strong> qui jouent un rôle d'amortisseur. À l'arrière de ces disques se trouve le canal rachidien, qui contient les nerfs se dirigeant vers vos jambes (formant le nerf sciatique ou le nerf crural).</p>
+
+<h4>1.2 Qu'est-ce qu'une discopathie ou une instabilité ?</h4>
+<p>Avec le temps, le disque se déshydrate, s'use et s'affaisse : c'est la <strong>discopathie</strong>. Cette dégénérescence peut entraîner des micro-mouvements anormaux (instabilité) ou un glissement de la vertèbre (spondylolisthésis). Les articulations à l'arrière forcent alors davantage et s'usent également (arthrose).</p>
+<p>Cela se traduit par de vives douleurs dans le bas du dos (<strong>lombalgies chroniques</strong>) et parfois par des douleurs irradiant dans les jambes (sciatique ou cruralgie) si le disque affaissé vient comprimer les nerfs.</p>
+
+<h3>CHAPITRE 2 — LES OPTIONS THÉRAPEUTIQUES NON CHIRURGICALES</h3>
+<p>La chirurgie n'est jamais la première étape. L'évolution naturelle d'une discopathie peut parfois se stabiliser d'elle-même. Les traitements médicaux sont testés pendant de nombreux mois (souvent plus de 6 mois) :</p>
+<ul>
+<li><strong>Traitements médicamenteux :</strong> Antalgiques, anti-inflammatoires, décontracturants musculaires.</li>
+<li><strong>Immobilisation lombaire :</strong> Port d'un corset rigide pour stabiliser le dos et soulager la douleur lors des crises.</li>
+<li><strong>Kinésithérapie :</strong> Indispensable pour muscler la sangle abdominale et lombaire (gainage).</li>
+<li><strong>Infiltrations :</strong> Injections de corticoïdes au contact des nerfs ou dans les articulations arrière pour calmer l'inflammation.</li>
+</ul>
+
+<h3>CHAPITRE 3 — INDICATIONS DE L'ARTHRODÈSE ET RÈGLES PRÉ-OPÉRATOIRES</h3>
+<h4>3.1 Quand faut-il opérer ?</h4>
+<p>La chirurgie est proposée en cas d'échec de tous les traitements médicaux, lorsque la douleur (au dos ou aux jambes) devient quotidienne, invalidante, et retentit lourdement sur votre qualité de vie (professionnelle, sociale, loisirs).</p>
+
+<h4>3.2 La règle d'or : l'arrêt impératif du tabac</h4>
+<div class="note warn">
+<strong>⚠️ Tabagisme et Pseudarthrose :</strong> L'objectif de l'intervention est de souder deux os ensemble. Le tabac (la nicotine) diminue drastiquement la vascularisation osseuse. Si vous fumez, l'os ne consolidera pas (on parle de <strong>pseudarthrose</strong>) et l'opération sera un échec douloureux qui nécessitera une nouvelle chirurgie. <strong>L'arrêt complet du tabac au moins 6 semaines avant et 3 mois après l'intervention est une condition absolue.</strong>
+</div>
+
+<h4>3.3 Le bilan d'imagerie vasculaire pré-opératoire</h4>
+<p>Contrairement aux autres chirurgies du dos, l'approche par l'abdomen nécessite de passer très près des gros vaisseaux sanguins (l'aorte et la veine cave). Il vous sera prescrit un <strong>Angio-Scanner ou une Angio-IRM</strong> avant l'opération. Cet examen est indispensable : il permet au chirurgien de « cartographier » précisément vos vaisseaux sanguins afin d'aborder la colonne vertébrale en toute sécurité.</p>
+
+<h3>CHAPITRE 4 — LA TECHNIQUE CHIRURGICALE (VOIE ANTÉRIEURE / ALIF)</h3>
+<h4>4.1 Pourquoi passer par le ventre ? (Le grand avantage de l'ALIF)</h4>
+<p>ALIF signifie <em>Anterior Lumbar Interbody Fusion</em> (Fusion intersomatique lombaire par voie antérieure). Bien que vous ayez mal au dos, le chirurgien aborde la colonne par votre abdomen (le ventre). L'avantage majeur est de pouvoir accéder directement à l'avant de la colonne <strong>sans couper ni abîmer les puissants muscles de votre dos</strong>, et sans avoir à manipuler les nerfs situés à l'arrière.</p>
+<p>De plus, cette voie permet de placer une "cage" de très grande taille, ce qui offre une surface de fusion osseuse maximale et permet de restaurer parfaitement la cambrure naturelle de votre bas du dos (lordose).</p>
+
+<h4>4.2 Le déroulement de l'intervention</h4>
+<ul>
+<li><strong>L'incision :</strong> L'opération est réalisée sous anesthésie générale. C'est une cicatrice horizontale ou verticale sur la partie basse de l'abdomen (sous le nombril).</li>
+<li><strong>L'accès (Abord) :</strong> Les muscles du ventre ne sont pas coupés, ils sont écartés. Les intestins (le péritoine) sont repoussés sur le côté. Un <strong>chirurgien vasculaire ou viscéral</strong> est souvent présent aux côtés du chirurgien du rachis pour écarter prudemment les gros vaisseaux sanguins (aorte, veine cave) qui se trouvent juste devant les vertèbres.</li>
+<li><strong>Le retrait du disque :</strong> Le disque usé est entièrement retiré et les plateaux vertébraux sont "grattés".</li>
+<li><strong>La mise en place de la cage :</strong> Une cale en plastique, en carbone ou en titane (la cage) remplie de greffe osseuse (ou d'os de synthèse) est insérée fermement entre les deux vertèbres pour restaurer la hauteur. La cage est souvent fixée par des vis intégrées ou par une plaque.</li>
+</ul>
+<p><em>Note : Dans certains cas, cette chirurgie par l'avant est complétée par la pose de vis dans le dos (voie postérieure) lors de la même anesthésie ou quelques jours plus tard.</em></p>
+
+<h3>CHAPITRE 5 — RÉSULTATS ATTENDUS ET RISQUES SPÉCIFIQUES</h3>
+<h4>5.1 Résultats attendus</h4>
+<p>L'objectif est la soudure des vertèbres (fusion). Les douleurs sciatiques disparaissent généralement très vite. Les douleurs lombaires (le mal de dos) diminuent progressivement sur plusieurs mois, le temps que la musculature se réadapte et que la greffe prenne. Le soulagement n'est jamais de 100 %, mais la qualité de vie est considérablement améliorée.</p>
+
+<h4>5.2 Risques spécifiques à l'abord par le ventre</h4>
+<p>Cette approche est très élégante mais comporte des risques spécifiques liés à l'anatomie locale que vous devez connaître :</p>
+
+<p><strong>Risque vasculaire (Hémorragie)</strong></p>
+<ul>
+<li>Les gros vaisseaux (artères et veines iliaques, aorte, veine cave) cheminent exactement devant les disques L4-L5 et L5-S1. Une plaie vasculaire est rare (1 à 2 %) grâce à la présence du chirurgien vasculaire, mais si elle survient, elle nécessite une réparation immédiate (suture) et parfois une transfusion sanguine.</li>
+</ul>
+
+<p><strong>Risque sexuel et urologique (Le plexus pré-sacré)</strong></p>
+<ul>
+<li>Un petit réseau de nerfs végétatifs passe devant le disque L5-S1. S'il est irrité pendant qu'on l'écarte :
+  <ul>
+    <li><strong>Chez l'homme (1 à 5 %) :</strong> Risque d'<strong>éjaculation rétrograde</strong> (le sperme part dans la vessie au lieu de sortir). Cela ne rend pas impuissant, n'affecte ni l'érection ni le plaisir, mais peut rendre stérile temporairement ou définitivement. Un recueil de sperme avant l'opération peut être discuté si vous avez un projet d'enfant.</li>
+    <li><strong>Chez la femme :</strong> Possibilité de sécheresse vaginale transitoire.</li>
+  </ul>
+</li>
+</ul>
+
+<p><strong>Risque sympathique (Sensation de chaleur)</strong></p>
+<ul>
+<li>En écartant la chaîne nerveuse sympathique, il est fréquent (15 à 20 %) de ressentir après l'opération qu'une jambe est "plus chaude" ou légèrement gonflée par rapport à l'autre. C'est bénin et souvent temporaire.</li>
+</ul>
+
+<p><strong>Risques pariétaux et digestifs</strong></p>
+<ul>
+<li>Les intestins ayant été manipulés, le transit intestinal est souvent ralenti ou bloqué pendant 2 à 4 jours (iléus). Plus rarement, une occlusion à distance ou une faiblesse de la paroi du ventre (éventration) peut survenir, nécessitant une petite reprise.</li>
+</ul>
+
+<h4>5.3 Risques orthopédiques généraux</h4>
+<ul>
+<li><strong>Pseudarthrose :</strong> Absence de soudure de l'os au bout d'un an (très favorisée par le tabac ou le diabète).</li>
+<li><strong>Hématome ou Infection :</strong> L'infection est plus rare par l'avant que par l'arrière de la colonne, mais elle nécessite des antibiotiques si elle survient.</li>
+<li><strong>Phlébite / Embolie pulmonaire :</strong> Prévenues par des anticoagulants, des bas de contention et le lever précoce.</li>
+</ul>
+
+<h3>CHAPITRE 6 — HOSPITALISATION ET CONVALESCENCE</h3>
+<h4>6.1 L'hospitalisation et les suites immédiates</h4>
+<ul>
+<li><strong>Durée :</strong> Généralement entre 3 et 6 jours, le temps que votre transit intestinal (gaz et selles) reprenne, ce qui est souvent le signal de départ à domicile.</li>
+<li><strong>Douleurs :</strong> Contre toute attente, l'opération est souvent moins douloureuse que par l'arrière, car les muscles du dos n'ont pas été coupés.</li>
+<li><strong>Lever :</strong> Il est autorisé dès le lendemain (J+1) avec l'aide des kinésithérapeutes. Un drain (petit tuyau) situé dans le ventre sera retiré au bout de 2 ou 3 jours.</li>
+</ul>
+
+<h4>6.2 Convalescence et Reprises d'activités</h4>
+<p>L'os met <strong>3 à 6 mois pour fusionner</strong>. Pendant cette période, votre colonne doit être protégée. Le chirurgien vous prescrira très souvent un <strong>corset lombaire</strong> à porter pendant 1 à 3 mois, principalement la journée pour soutenir le dos.</p>
+<table>
+<thead><tr><th>Activité</th><th>Délai approximatif</th><th>Conditions</th></tr></thead>
+<tbody>
+<tr><td>Marche simple (quotidienne)</td><td>Dès J+1</td><td>Progressive, c'est la seule rééducation du premier mois.</td></tr>
+<tr><td>Conduite automobile</td><td>4 à 6 semaines</td><td>Après le premier rendez-vous de contrôle chirurgical.</td></tr>
+<tr><td>Arrêt de travail (sédentaire)</td><td>2 à 3 mois</td><td>Selon le type de trajet et la fatigue.</td></tr>
+<tr><td>Arrêt de travail (physique)</td><td>4 à 6 mois</td><td>Souvent un reclassement ou une adaptation de poste est à prévoir.</td></tr>
+<tr><td>Kinésithérapie active</td><td>Vers le 2ème mois</td><td>Gainage et étirements doux (pas de musculation lourde).</td></tr>
+<tr><td>Sport avec impacts (course, tennis)</td><td>6 mois minimum</td><td>L'os doit être complètement soudé sur la radiographie.</td></tr>
+</tbody>
+</table>
+
+<h4>6.3 Signes d'alerte — consulter en urgence après l'opération</h4>
+<div class="note warn">
+<table>
+<thead><tr><th>Signe d'alerte observé</th><th>Action à entreprendre</th></tr></thead>
+<tbody>
+<tr><td>Douleur au ventre persistante, vomissements, absence de gaz</td><td><strong>Consulter les urgences</strong><br>Suspicion de blocage intestinal (occlusion).</td></tr>
+<tr><td>Gonflement très douloureux et soudain d'un mollet, essoufflement</td><td><strong>URGENCE ABSOLUE</strong><br>Suspicion de phlébite ou d'embolie pulmonaire.</td></tr>
+<tr><td>Fièvre persistante &gt; 38.5°C, écoulement au niveau de la cicatrice</td><td><strong>Consulter rapidement</strong><br>Suspicion d'infection du site opératoire.</td></tr>
+<tr><td>Perte de force brutale dans une jambe, difficulté à uriner</td><td><strong>URGENCE ABSOLUE</strong><br>Évaluation neurologique immédiate.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>FOIRE AUX QUESTIONS (FAQ) — LES 15 QUESTIONS LES PLUS POSÉES</h3>
+<div class="note">
+<p><strong>1. Pourquoi m'opérer par le ventre alors que j'ai mal au dos ?</strong><br>
+Cela permet d'arriver directement sur le devant du disque, sans avoir à couper les importants muscles de votre dos ni à écarter les nerfs de la moelle épinière. On peut aussi y insérer une cage beaucoup plus grande pour une meilleure solidité.</p>
+
+<p><strong>2. Vais-je avoir une grosse cicatrice sur le ventre ?</strong><br>
+La cicatrice mesure en général entre 5 et 10 cm. Elle est horizontale (souvent esthétique, dans un pli sous le nombril) ou verticale, selon le ou les disques à atteindre.</p>
+
+<p><strong>3. Les muscles de mon ventre vont-ils être coupés ?</strong><br>
+Non, les muscles grands droits de l'abdomen sont simplement écartés dans le sens de leurs fibres. Ils retrouveront toute leur force après l'opération.</p>
+
+<p><strong>4. Est-ce que mon intestin va être touché ?</strong><br>
+Non, les intestins sont repoussés délicatement sur le côté dans leur enveloppe (le péritoine). C'est pour cela que votre système digestif est un peu "endormi" (gaz difficiles) pendant 2 à 3 jours après l'opération.</p>
+
+<p><strong>5. Qu'est-ce qu'une "cage" et à quoi sert-elle ?</strong><br>
+C'est une petite cale creuse (en titane ou polymère) que l'on glisse à la place du disque. Elle sert de tuteur pour écarter les vertèbres et contient l'os qui va permettre la soudure définitive (l'arthrodèse).</p>
+
+<p><strong>6. D'où vient l'os qu'on met dans la cage ?</strong><br>
+Le chirurgien utilise le plus souvent un os de synthèse (substitut osseux artificiel performant) ou de l'os de banque, ce qui évite d'aller prélever de l'os sur votre propre bassin.</p>
+
+<p><strong>7. Est-ce que je risque d'être stérile ou impuissant ?</strong><br>
+Pour les hommes, il n'y a aucun risque d'impuissance (l'érection est préservée). Il y a cependant un petit risque (1 à 5 %) que le sperme reparte dans la vessie au lieu de sortir (éjaculation rétrograde), ce qui peut causer une infertilité. Ce point est crucial pour les patients ayant un projet d'enfant.</p>
+
+<p><strong>8. Vais-je sonner aux portiques de sécurité ?</strong><br>
+Non, le titane médical utilisé ne déclenche pas les alarmes des aéroports.</p>
+
+<p><strong>9. Dois-je porter un corset après l'opération ?</strong><br>
+Oui. Dans la majorité des cas, un corset lombaire sur mesure ou de série est prescrit pour 1 à 3 mois. Il sert de "plâtre" extérieur pour empêcher les faux mouvements le temps que la soudure osseuse commence.</p>
+
+<p><strong>10. Combien de temps avant que mon dos ne soit "soudé" ?</strong><br>
+La cage est stable immédiatement, mais la véritable fusion biologique (la soudure osseuse définitive) prend entre 6 mois et un an.</p>
+
+<p><strong>11. Quand pourrai-je me lever et marcher ?</strong><br>
+Dès le lendemain de l'intervention, aidé par les soignants. La marche quotidienne est votre meilleure alliée pour la récupération, y compris pour réveiller le transit intestinal !</p>
+
+<p><strong>12. Vais-je perdre en souplesse en bloquant une vertèbre ?</strong><br>
+Très peu. Le blocage d'un seul niveau (sur les 5 que compte la région lombaire) entraîne une perte de mobilité minime. De plus, la disparition de la douleur compense très largement cette petite raideur, et vous vous sentirez souvent plus souple qu'avant.</p>
+
+<p><strong>13. Pourquoi un chirurgien vasculaire est-il parfois présent ?</strong><br>
+Les très gros vaisseaux sanguins (l'aorte) sont collés contre la colonne. L'expert vasculaire sécurise leur manipulation pour ouvrir un passage sûr ("l'autoroute") afin que le chirurgien du dos puisse travailler sur le disque en toute sécurité.</p>
+
+<p><strong>14. Quand pourrai-je reprendre une activité sportive ?</strong><br>
+La marche et la natation douce sont possibles après 1 à 2 mois. Pour les sports avec impacts (course à pied, ski, football), il faut attendre l'accord de votre chirurgien (souvent après 6 à 9 mois), une fois la radiographie confirmant la soudure.</p>
+
+<p><strong>15. Faut-il arrêter de fumer avant l'intervention ?</strong><br>
+OUI ! C'est absolument impératif. Le tabac multiplie par 3 à 5 le risque de non-soudure de l'os (échec de l'opération). Vous devez arrêter de fumer au moins 6 semaines avant et 3 mois après.</p>
+</div>
+
+<h3>QUESTIONS À POSER À VOTRE CHIRURGIEN</h3>
+<ol>
+<li>Pourquoi me recommandez-vous cette voie antérieure plutôt qu'une voie postérieure classique ?</li>
+<li>Sera-t-il nécessaire d'ajouter des vis dans mon dos lors d'un second temps chirurgical ?</li>
+<li>Puis-je avoir mon ordonnance pour faire réaliser mon corset sur mesure avant l'hospitalisation ?</li>
+<li>Si je suis un homme jeune : comment organiser une conservation de sperme si je souhaite des enfants ?</li>
+</ol>
+
+<h3>CONSENTEMENT ÉCLAIRÉ</h3>
+<p>J'atteste avoir reçu cette fiche d'information et en avoir pris connaissance. J'ai pu poser les questions que je souhaitais et j'ai obtenu des réponses satisfaisantes. J'ai compris la nature de l'intervention (arthrodèse par voie antérieure / abdominale), l'obligation stricte de l'arrêt du tabac, ainsi que les risques spécifiques liés à cet abord (risques vasculaires, digestifs, et le risque urologique d'éjaculation rétrograde chez l'homme ou de sécheresse intime chez la femme).</p>
+<p><strong>Date :</strong> </p>
+
+<div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:10px;"><p style="margin:0;flex:1;min-width:280px;"><strong>Nom et prénom du patient : </strong>________________________________</p><p style="margin:0;flex:1;min-width:280px;"><strong>Signature du patient :</strong> ________________________________</p></div>
+<footer>
+<div><strong>Espace Francilien du Rachis</strong> — 95, rue de Prony, 75017 Paris</div>
+<div>Dr Raphaël Jameson : dr.jameson@rachis.paris · Dr Mayalen Lamerain : dr.mlamerain@gmail.com · Dr Christophe Travert : dr.ctravert@gmail.com</div>
+<div><strong>rachis.paris</strong></div>
+</footer>
+</div>
+</div>
+</body>
+</html>
